@@ -1,0 +1,11 @@
+{
+  "name": "com.cmapua.dropdown-id",
+  "author": {
+    "name":"Carlos Mapúa",
+    "email": "carlos.mapua@gmail.com"
+  },
+  "displayName": "Dropdown ID",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "Converts an Integer inspector property into a dropdown list of IDs, using Odin Inspector."
+}

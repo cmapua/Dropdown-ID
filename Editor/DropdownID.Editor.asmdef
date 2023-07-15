@@ -1,0 +1,17 @@
+{
+    "name": "DropdownID.Editor",
+    "references": [
+        "GUID:4fbdaa2aa04ed024aae15a26fc9f7f46"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
