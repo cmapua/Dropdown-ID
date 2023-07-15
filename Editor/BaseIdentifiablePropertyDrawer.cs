@@ -26,27 +26,27 @@ namespace DropdownID
             var results = OdinSelector<ValueDropdownItem<int>>.DrawSelectorDropdown(
                 rect,
                 new GUIContent(string.IsNullOrEmpty(serializedValueLabel) ? "<None>" : serializedValueLabel),
-                DoSelector
+                CreateSelector
             );
 
             if (results != null) ValueEntry.SmartValue = results.FirstOrDefault().Value;
         }
 
-        private List<TIdentifiable> FindIdentifiables()
+        protected virtual List<TIdentifiable> FindIdentifiables()
         {
             var filter = $"t:{typeof(TIdentifiable).FullName}";
             //Debug.Log($"Filter: {filter}");
             var guids = AssetDatabase.FindAssets(filter);
-            var configs = new List<TIdentifiable>();
+            var results = new List<TIdentifiable>();
 
             for (var i = 0; i < guids.Length; i++)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guids[i]);
                 var c = AssetDatabase.LoadAssetAtPath<Object>(path) as TIdentifiable;
-                configs.Add(c);
+                results.Add(c);
             }
 
-            return configs;
+            return results;
         }
 
         private string GetLabelForId(int id, List<TIdentifiable> identifiables)
@@ -60,7 +60,7 @@ namespace DropdownID
         }
 
         // source: https://discord.com/channels/355444042009673728/355817720182341632/716002447893725255
-        private OdinSelector<ValueDropdownItem<int>> DoSelector(Rect buttonRect)
+        private OdinSelector<ValueDropdownItem<int>> CreateSelector(Rect buttonRect)
         {
             var dropdown = new List<ValueDropdownItem<int>>
             {
